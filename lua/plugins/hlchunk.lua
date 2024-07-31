@@ -6,6 +6,8 @@ return
         require("hlchunk").setup({
             chunk = {
                 enable = true,
+                duration = 10,
+                delay = 10,
             },
             line_num = {
                 enable = true,
