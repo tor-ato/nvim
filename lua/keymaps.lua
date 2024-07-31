@@ -24,3 +24,6 @@ vim.keymap.set('i', '<Right>', '<Nop>')
 
 -- Clipboard related
 vim.keymap.set('v', '<leader>c', '"+y')
+
+-- Neotree
+vim.keymap.set('n', '<C-t>', ':Neotree<CR>')
