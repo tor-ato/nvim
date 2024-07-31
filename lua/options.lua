@@ -25,4 +25,7 @@ vim.opt.sidescrolloff = 10
 vim.opt.shell = "zsh"
 vim.opt.termguicolors = true
 vim.opt.fileencoding = "utf-8"
+vim.opt.langmenu = 'en_US'
+vim.env.LANG = 'en_US'
 vim.opt.modifiable = true
+

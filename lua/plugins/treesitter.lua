@@ -1,6 +1,7 @@
 -- ~/.config/nvim/lua/plugins/treesitter.lua
 
-return {
+return
+{
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
   event = { "BufReadPost", "BufNewFile" },
