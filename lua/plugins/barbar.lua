@@ -22,28 +22,8 @@ map('n', '<A-9>', ':BufferGoto 9<CR>', opts)
 map('n', '<A-0>', ':BufferLast<CR>', opts)
 -- Pin/unpin buffer
 map("n", "<A-p>", ":BufferPin<CR>", opts)
--- Close buffer
--- map("n", "<A-c>", ":BufferClose<CR>", opts)
--- Wipeout buffer
---                 :BufferWipeout
--- Close commands
---                 :BufferCloseAllButCurrent
---                 :BufferCloseAllButPinned
---                 :BufferCloseAllButCurrentOrPinned
---                 :BufferCloseBuffersLeft
---                 :BufferCloseBuffersRight
--- Magic buffer-picking mode
--- map('n', '<C-s>', ':BufferPick<CR>', opts)
--- Sort automatically by...
--- map('n', '<Space>bb', ':BufferOrderByBufferNumber<CR>', opts)
--- map('n', '<Space>bd', ':BufferOrderByDirectory<CR>', opts)
--- map('n', '<Space>bl', ':BufferOrderByLanguage<CR>', opts)
--- map('n', '<Space>bw', ':BufferOrderByWindowNumber<CR>', opts)
 
--- Other:
--- :BarbarEnable - enables barbar (enabled by default)
--- :BarbarDisable - very bad command, should never be used
-return
+return 
 {
 	"romgrk/barbar.nvim",
 	lazy = false,

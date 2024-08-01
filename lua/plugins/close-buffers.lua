@@ -2,14 +2,6 @@ local M = {
     'kazhala/close-buffers.nvim',
     keys = {
                 {
-                  "<A-h>",
-                  function()
-                    require("close_buffers").delete({ type = 'hidden' })
-                    vim.cmd([[redraw!]])
-                  end,
-                  desc = "Close hidden buffers",
-                },
-                {
                   "<A-o>",
                   function()
                     require("close_buffers").delete({ type = 'other' })
@@ -53,3 +45,4 @@ function M.config()
 end
 
 return M
+
