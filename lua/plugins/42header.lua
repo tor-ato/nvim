@@ -5,7 +5,7 @@ return
         { "<F1>", mode = "n", },
       },
     config = function()
-        ovim.g.user42 = 'tkitahar'
+        vim.g.user42 = 'tkitahar'
         vim.g.mail42 = 'tkitahar@student.42tokyo.jp'
     end
 }

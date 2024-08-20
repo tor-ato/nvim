@@ -2,7 +2,6 @@
 vim.keymap.set("i", "jj", "<Esc>")
 vim.keymap.set("i", "kk", "<Esc>")
 vim.keymap.set("i", "hh", "<Esc>")
-vim.keymap.set("i", "ll", "<Esc>")
 
 -- Insert mode navigation using Ctrl + hjkl
 vim.keymap.set("i", "<C-j>", "<Down>")
