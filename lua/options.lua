@@ -13,7 +13,7 @@ vim.opt.ignorecase = true
 vim.opt.shiftwidth = 0
 vim.opt.tabstop = 4
 vim.opt.smartindent = true
-vim.opt.expandtab = true
+vim.opt.expandtab = false
 
 -- enable transparency for a floating window and a popup window
 vim.opt.winblend = 20
