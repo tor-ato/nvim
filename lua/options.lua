@@ -29,3 +29,5 @@ vim.opt.langmenu = 'en_US'
 vim.env.LANG = 'en_US'
 vim.opt.modifiable = true
 
+-- swapfile
+vim.opt.swapfile = false

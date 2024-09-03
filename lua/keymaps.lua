@@ -26,3 +26,6 @@ vim.keymap.set('v', '<leader>c', '"+y')
 
 -- Neotree
 vim.keymap.set('n', '<C-t>', ':Neotree<CR>')
+
+-- terminal mode out
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')

@@ -54,7 +54,7 @@ return {
 
             cmp.setup({
                 completion = {
-                    completeopt = "menu,menuone",
+                    completeopt = "menu,menuone,noinsert,noselect",
                 },
                 mapping = {
                     ["<Tab>"] = cmp.mapping.select_next_item(),
