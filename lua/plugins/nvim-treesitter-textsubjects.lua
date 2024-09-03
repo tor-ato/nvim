@@ -7,7 +7,7 @@ return {
         local textobjects = {
             ["."] = "textsubjects-smart",
             [";"] = "textsubjects-container-outer",
-            ["i;"] = "textsubjects-container-inner",
+            ["'"] = "textsubjects-container-inner",
         }
 
         require("nvim-treesitter.configs").setup({
