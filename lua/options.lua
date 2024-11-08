@@ -1,6 +1,8 @@
 -- enable line numbers
 vim.opt.number = true
-vim.opt.relativenumber = true
+vim.opt.relativenumber = false
+vim.opt.cursorline = true
+vim.opt.cursorlineopt = "number"
 
 -- save undo histroy
 vim.opt.undofile = true

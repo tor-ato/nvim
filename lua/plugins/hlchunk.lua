@@ -10,7 +10,7 @@ return
                 delay = 10,
             },
             line_num = {
-                enable = true,
+                enable = false,
             },
         })
     end
