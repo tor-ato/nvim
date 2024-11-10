@@ -12,13 +12,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local opt = {
-    defaults = {
-        lazy = true,
-    },
-	performance = {
-		cache = {
-			enabled = true,
-		},
-	},
+    defaults = {lazy = true},
 }
 require("lazy").setup("plugins", opt)
