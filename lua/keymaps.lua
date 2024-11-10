@@ -29,3 +29,7 @@ vim.keymap.set('n', '<C-t>', ':Neotree<CR>')
 
 -- terminal mode out
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
+
+-- normal mode keymaps
+vim.keymap.set("n", "j", "gj", opt)
+vim.keymap.set("n", "k", "gk", opt)
