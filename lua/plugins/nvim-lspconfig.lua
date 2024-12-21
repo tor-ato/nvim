@@ -8,7 +8,6 @@ return {
         "williamboman/mason-lspconfig.nvim",
         dependencies = {
             "hrsh7th/cmp-nvim-lsp",
-            "williamboman/mason.nvim",
               {
                 "nvimdev/lspsaga.nvim",
                 config = function()
@@ -39,7 +38,6 @@ return {
                     -- end,
                     capabilities = capabilities,
                 }
-
                 require("lspconfig")[server].setup(opt)
             end })
         end

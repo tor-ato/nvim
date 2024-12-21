@@ -1,4 +1,5 @@
-return {
+return
+{
     {
         "hrsh7th/nvim-cmp",
         event = "InsertEnter",
@@ -8,17 +9,12 @@ return {
             { "hrsh7th/cmp-cmdline" },
             { "hrsh7th/cmp-nvim-lsp" },
             { "hrsh7th/cmp-path" },
-            { "onsails/lspkind.nvim" },
-            { "zbirenbaum/copilot-cmp" },
-            { "garymjr/nvim-snippets" },
             { "hrsh7th/cmp-nvim-lsp-signature-help" },
-        },
+			{ "onsails/lspkind.nvim" },
+		},
         config = function()
             local cmp = require("cmp")
             local lspkind = require("lspkind")
-
-            require("copilot_cmp").setup()
-
             lspkind.init({
                 mode = "symbol_text",
                 preset = "codicons",
@@ -64,25 +60,13 @@ return {
 						select = true, 
 					}),
                 },
-
                 sources = cmp.config.sources({
                     { name = "nvim_lsp_signature_help" },
                     { name = "snippets" },
                     { name = "nvim_lsp" },
-                    { name = "copilot" },
                 }, {
                     { name = "buffer" },
                 }),
-                formatting = {
-                    format = lspkind.cmp_format({
-                        mode = "symbol_text",
-                        maxwidth = 50,
-                        ellipsis_char = "...",
-                        before = function(_, vim_item)
-                            return vim_item
-                        end,
-                    }),
-                },
             })
 
             cmp.setup.cmdline("/", {

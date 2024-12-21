@@ -33,4 +33,3 @@ vim.opt.modifiable = true
 
 -- swapfile
 vim.opt.swapfile = false
-
