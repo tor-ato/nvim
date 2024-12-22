@@ -52,6 +52,7 @@ return
                 completion = {
                     completeopt = "menu,menuone,noinsert",
                 },
+					-- original setting
 					--            mapping = {
 					--                ["<C-Space>"] = cmp.mapping.complete(),
 					--                ["<C-e>"] = cmp.mapping.close(),
@@ -60,12 +61,13 @@ return
 					-- 	select = true, 
 					-- }),
 					--            },
-
 				 mapping = cmp.mapping.preset.insert({
 					["<CR>"] = cmp.mapping.confirm({
 					  behavior = cmp.ConfirmBehavior.Replace,
 					  select = true,
 					}),
+					-- with this setting, it will complete and tab change the args but it's wired.
+					-- ["<C-Space>"] = cmp.mapping.complete(),
 				}),
 					sources = cmp.config.sources({
                     { name = "nvim_lsp_signature_help" },

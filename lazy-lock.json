@@ -1,5 +1,6 @@
 {
   "42header": { "branch": "master", "commit": "9f51db5cc483951e257aece66f1f4ce3b14cdab1" },
+  "Comment.nvim": { "branch": "master", "commit": "e30b7f2008e52442154b66f7c519bfd2f1e32acb" },
   "aerial.nvim": { "branch": "master", "commit": "1160fb7a15a34b03b7381d95d45560712b5f19d0" },
   "alpha-nvim": { "branch": "main", "commit": "de72250e054e5e691b9736ee30db72c65d560771" },
   "auto-save.nvim": { "branch": "main", "commit": "b58948445c43e6903987a9bb97c82e66fdcc0786" },
