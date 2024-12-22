@@ -50,7 +50,7 @@ return
 
             cmp.setup({
                 completion = {
-                    completeopt = "menu,menuone,noinsert,noselect",
+                    completeopt = "menu,menuone,noinsert",
                 },
                 mapping = {
                     ["<C-Space>"] = cmp.mapping.complete(),
@@ -64,7 +64,6 @@ return
                     { name = "nvim_lsp_signature_help" },
                     { name = "snippets" },
                     { name = "nvim_lsp" },
-                }, {
                     { name = "buffer" },
                 }),
             })
