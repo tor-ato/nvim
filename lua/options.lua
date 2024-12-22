@@ -1,3 +1,6 @@
+-- language to en_US
+vim.cmd('language en_US.UTF-8')
+
 -- enable line numbers
 vim.opt.number = true
 vim.opt.relativenumber = false
