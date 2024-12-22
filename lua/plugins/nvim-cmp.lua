@@ -10,49 +10,14 @@ return
             { "hrsh7th/cmp-nvim-lsp" },
             { "hrsh7th/cmp-path" },
             { "hrsh7th/cmp-nvim-lsp-signature-help" },
-			{ "onsails/lspkind.nvim" },
 		},
         config = function()
             local cmp = require("cmp")
-            local lspkind = require("lspkind")
-            lspkind.init({
-                mode = "symbol_text",
-                preset = "codicons",
-                symbol_map = {
-                    Text = "󰉿",
-                    Method = "󰆧",
-                    Function = "󰊕",
-                    Constructor = "",
-                    Field = "󰜢",
-                    Variable = "󰀫",
-                    Class = "󰠱",
-                    Interface = "",
-                    Module = "",
-                    Property = "󰜢",
-                    Unit = "󰑭",
-                    Value = "󰎠",
-                    Enum = "",
-                    Keyword = "󰌋",
-                    Snippet = "",
-                    Color = "󰏘",
-                    File = "󰈙",
-                    Reference = "󰈇",
-                    Folder = "󰉋",
-                    EnumMember = "",
-                    Constant = "󰏿",
-                    Struct = "󰙅",
-                    Event = "",
-                    Operator = "󰆕",
-                    TypeParameter = "",
-                    Copilot = "",
-                },
-            })
-
             cmp.setup({
                 completion = {
                     completeopt = "menu,menuone,noinsert",
                 },
-					-- original setting
+					-- original settings
 					--            mapping = {
 					--                ["<C-Space>"] = cmp.mapping.complete(),
 					--                ["<C-e>"] = cmp.mapping.close(),
@@ -69,11 +34,13 @@ return
 					-- with this setting, it will complete and tab change the args but it's wired.
 					-- ["<C-Space>"] = cmp.mapping.complete(),
 				}),
+					-- choose from dependencies sources
 					sources = cmp.config.sources({
-                    { name = "nvim_lsp_signature_help" },
-                    { name = "snippets" },
-                    { name = "nvim_lsp" },
+                    { name = "spell" },
                     { name = "buffer" },
+                    { name = "nvim_lsp" },
+                    { name = "path" },
+                    { name = "nvim_lsp_signature_help" },
                 }),
             })
 
