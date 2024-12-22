@@ -52,15 +52,22 @@ return
                 completion = {
                     completeopt = "menu,menuone,noinsert",
                 },
-                mapping = {
-                    ["<C-Space>"] = cmp.mapping.complete(),
-                    ["<C-e>"] = cmp.mapping.close(),
-                    ["<CR>"] = cmp.mapping.confirm({ 
-						behavior = cmp.ConfirmBehavior.Replace,
-						select = true, 
+					--            mapping = {
+					--                ["<C-Space>"] = cmp.mapping.complete(),
+					--                ["<C-e>"] = cmp.mapping.close(),
+					--                ["<CR>"] = cmp.mapping.confirm({ 
+					-- 	behavior = cmp.ConfirmBehavior.Replace,
+					-- 	select = true, 
+					-- }),
+					--            },
+
+				 mapping = cmp.mapping.preset.insert({
+					["<CR>"] = cmp.mapping.confirm({
+					  behavior = cmp.ConfirmBehavior.Replace,
+					  select = true,
 					}),
-                },
-                sources = cmp.config.sources({
+				}),
+					sources = cmp.config.sources({
                     { name = "nvim_lsp_signature_help" },
                     { name = "snippets" },
                     { name = "nvim_lsp" },
