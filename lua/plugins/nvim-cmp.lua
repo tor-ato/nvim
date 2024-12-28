@@ -15,7 +15,7 @@ return
             local cmp = require("cmp")
             cmp.setup({
                 completion = {
-                    completeopt = "menu,menuone,noinsert",
+                    completeopt = "menu,menuone,noinsert,noselect",
                 },
 					-- original settings
 					--            mapping = {
