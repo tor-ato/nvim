@@ -47,13 +47,12 @@ return {
         -- set buffer local keymap
         vim.keymap.set("n", "K", vim.lsp.buf.hover, opt)
         vim.keymap.set("n", "gd", vim.lsp.buf.definition, opt)
-        vim.keymap.set("n", "gf", vim.lsp.buf.format, opt)
         vim.keymap.set("n", "gr", vim.lsp.buf.references, opt)
         vim.keymap.set("n", "gn", vim.lsp.buf.rename, opt)
         -- reference highlight
         vim.api.nvim_create_augroup("lsp_document_highlight", {})
         vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-            pattern = { "*.c", "*.cpp", "*.py", "*.rust", "*.lua" }, -- workaround
+            pattern = { "*.c", "*.cpp", "*.py", "*.rust", "*.lua", "Makefile" }, -- workaround
             group = "lsp_document_highlight",
             callback = function()
                 vim.lsp.buf.document_highlight()
