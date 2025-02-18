@@ -44,7 +44,7 @@ return {
 	opts = function()
         vim.opt.completeopt = "menu,preview,noinsert,popup"
         return {
-            model = "claude-3.5-sonnet",
+            model = "gpt-4o",
             selection = function(source)
                 return require("CopilotChat.select").buffer(source)
             end,
