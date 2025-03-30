@@ -23,4 +23,4 @@ vim.keymap.set("n", "j", "gj", opt)
 vim.keymap.set("n", "k", "gk", opt)
 
 -- no hilgight when searching
-vim.keymap.set("n", "<leader><esc>", "<cmd>nohlsearch<cr>", opt)
+vim.keymap.set("n", "<esc><esc>", "<cmd>nohlsearch<cr>", opt)
