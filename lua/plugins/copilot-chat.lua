@@ -52,7 +52,7 @@ return {
 			code_block = { lang = "auto" }
 		},
 		window = {
-			layout = "vertical",
+			layout = 'vertical',
 			width = 0.4,
 			height = 0.75,
 			border = "rounded",
