@@ -36,3 +36,6 @@ vim.opt.modifiable = true
 
 -- swapfile
 vim.opt.swapfile = false
+
+-- split right
+vim.opt.splitright = true
