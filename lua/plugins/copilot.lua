@@ -1,20 +1,21 @@
 return
-{
-  "zbirenbaum/copilot.lua",
-  cmd = "Copilot",
-  build = ":Copilot auth",
-  event = "BufReadPost",
-  opts = {
-    suggestion = {
-      enabled = false, -- sugest make's not cmp
-      auto_trigger = true,
-      hide_during_completion = vim.g.ai_cmp,
-      keymap = {
-        accept = false, -- handled by nvim-cmp / blink.cmp <Tab> was good for me.
-        -- next = "<Alt-]>",
-        -- prev = "<Alt-[>",
-      },
-    },
-    panel = { enabled = false },
-  },
-}
+{ "zbirenbaum/copilot.lua", enabled = false }
+-- {
+--   "zbirenbaum/copilot.lua",
+--   cmd = "Copilot",
+--   build = ":Copilot auth",
+--   event = "BufReadPost",
+--   opts = {
+--     suggestion = {
+--       enabled = false, -- sugest make's not cmp
+--       auto_trigger = true,
+--       hide_during_completion = vim.g.ai_cmp,
+--       keymap = {
+--         accept = false, -- handled by nvim-cmp / blink.cmp <Tab> was good for me.
+--         -- next = "<Alt-]>",
+--         -- prev = "<Alt-[>",
+--       },
+--     },
+--     panel = { enabled = false },
+--   },
+-- }
