@@ -11,6 +11,12 @@ return
     },
     build = ":MasonUpdate",
     opts = {
+		ensure_installed = {
+				"clangd",
+				"clangd-format",
+				"jedi-language-server",
+				"lua-language-server",
+		},
         ui = {
             icons = {
                 package_installed = "✓",

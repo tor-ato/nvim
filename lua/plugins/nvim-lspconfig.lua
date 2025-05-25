@@ -1,88 +1,112 @@
 return {
-    "neovim/nvim-lspconfig",
-    event = {
-        "BufReadPre",
-        "BufNewFile",
+  "neovim/nvim-lspconfig",
+  event = {
+    "BufReadPre",
+    "BufNewFile",
+  },
+  dependencies = {
+    "williamboman/mason-lspconfig.nvim",
+    "mfussenegger/nvim-lint",
+    {
+      "hrsh7th/cmp-nvim-lsp",
+      dependencies = {
+        "nvimdev/lspsaga.nvim",
+        "folke/neodev.nvim",
+      },
     },
-    dependencies = {
-        "williamboman/mason-lspconfig.nvim",
-        dependencies = {
-            "hrsh7th/cmp-nvim-lsp",
-            {
-                "nvimdev/lspsaga.nvim",
-                config = function()
-                    require("lspsaga").setup {
-                        symbol_in_winbar = {
-                            enable = false,
-                        },
-                        ui = {
-                            code_action = "",
-                        },
-                    }
-                end,
-            },
-            {
-                "folke/neodev.nvim",
-                ft = "lua",
-            },
+    {
+      "nvimdev/lspsaga.nvim",
+      config = function()
+        require("lspsaga").setup {
+          symbol_in_winbar = {
+            enable = false,
+          },
+          ui = {
+            code_action = "",
+          },
+        }
+      end,
+    },
+    {
+      "folke/neodev.nvim",
+      ft = "lua",
+    },
+  },
+  opts = {
+    autoformat = false,
+    servers = {
+      clangd = {
+        cmd = {
+          "clangd",
+          "--fallback-style=webkit",
+          "--background-index",
+          "--clang-tidy",
+          "--query-driver=/usr/bin/gcc",
+          "--all-scopes-completion",
+          "--completion-style=detailed",
+          "--offset-encoding=utf-16",
         },
-		config = function()
-			 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-			 require("mason-lspconfig").setup({
-		
-				handlers = {
-				  function(server)
-					local opt = {
-					  capabilities = capabilities,
-					}
-					require("lspconfig")[server].setup(opt)
-				  end,
-				}
-			  })
-			end
+        init_options = {
+          fallbackFlags = {
+            "--std=c++98",
+            "--Wall",
+            "--Wextra",
+            "--Werror",
+            "--driver-mode=g++",
+          },
+        },
+      },
     },
-    config = function()
-        local opt = { noremap = true, silent = true }
-        -- set buffer local keymap
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, opt)
-        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opt)
-        vim.keymap.set("n", "gr", vim.lsp.buf.references, opt)
-        vim.keymap.set("n", "gn", vim.lsp.buf.rename, opt)
+  },
 
-        -- Google C++ Format on gf
-        vim.keymap.set("n", "gf", function()
-            vim.lsp.buf.formatting_sync(nil, 1000)
-        end, opt)
+  config = function(_, opts)
+    -- 診断表示の強化設定
+    vim.diagnostic.config {
+      virtual_text = {
+        prefix = "",
+        spacing = 0,
+      },
+      signs = true,
+      underline = true,
+      update_in_insert = false,
+      severity_sort = true,
+    }
 
-        -- reference highlight
-        vim.api.nvim_create_augroup("lsp_document_highlight", {})
-        vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-            pattern = { "*.c", "*.cpp", "*.py", "*.rust", "*.lua", "Makefile" }, -- workaround
-            group = "lsp_document_highlight",
-            callback = function()
-                vim.lsp.buf.document_highlight()
-            end
-        })
-        vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
-            pattern = { "*.c", "*.cpp", "*.py", "*.rust", "*.lua" }, -- workaround
-            group = "lsp_document_highlight",
-            callback = function()
-                vim.lsp.buf.clear_references()
-            end
-        })
-        -- TODO: understand the arguments (see help)
-        vim.opt.updatetime = 500
-        vim.api.nvim_set_hl(0, "LspReferenceText", {
-            bg = "#4a4a4a",
-            underline = true,
-        })
-        vim.api.nvim_set_hl(0, "LspReferenceRead", {
-            bg = "#4a4a4a",
-            underline = true,
-        })
-        vim.api.nvim_set_hl(0, "LspReferenceWrite", {
-            bg = "#4a4a4a",
-            underline = true,
-        })
-    end
+    -- キーマップ設定
+    local keymap_opt = { noremap = true, silent = true }
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, keymap_opt)
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition, keymap_opt)
+    vim.keymap.set("n", "gr", vim.lsp.buf.references, keymap_opt)
+    vim.keymap.set("n", "gn", vim.lsp.buf.rename, keymap_opt)
+
+    -- リファレンスハイライト設定
+    vim.api.nvim_create_augroup("lsp_document_highlight", {})
+    vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+      pattern = { "*.c", "*.cpp", "*.py", "*.rs", "*.lua", "Makefile" },
+      group = "lsp_document_highlight",
+      callback = vim.lsp.buf.document_highlight,
+    })
+    vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+      pattern = { "*.c", "*.cpp", "*.py", "*.rs", "*.lua", "Makefile" },
+      group = "lsp_document_highlight",
+      callback = vim.lsp.buf.clear_references,
+    })
+    vim.opt.updatetime = 500
+
+    -- ハイライトカラー設定
+    vim.api.nvim_set_hl(0, "LspReferenceText", { bg = "#4a4a4a", underline = true })
+    vim.api.nvim_set_hl(0, "LspReferenceRead", { bg = "#4a4a4a", underline = true })
+    vim.api.nvim_set_hl(0, "LspReferenceWrite", { bg = "#4a4a4a", underline = true })
+
+    -- LSPサーバー設定
+    local capabilities = require("cmp_nvim_lsp").default_capabilities()
+    require("mason-lspconfig").setup_handlers {
+      function(server)
+        local server_opts = vim.tbl_deep_extend("force", {
+          capabilities = capabilities,
+        }, opts.servers[server] or {})
+        require("lspconfig")[server].setup(server_opts)
+      end,
+    }
+  end,
 }

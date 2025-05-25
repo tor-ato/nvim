@@ -1,15 +1,14 @@
-return
-{
-	"nvim-lualine/lualine.nvim",
-    event = {
-        "UIEnter",
+return {
+  "nvim-lualine/lualine.nvim",
+  event = {
+    "UIEnter",
+  },
+  dependencies = {
+    "nvim-tree/nvim-web-devicons",
+  },
+  opts = {
+    options = {
+      theme = "iceberg_dark",
     },
-    dependencies = {
-		"nvim-tree/nvim-web-devicons",
-    },
-    opts = {
-        options = {
-            theme = "iceberg_dark",
-        },
-    },
+  },
 }
