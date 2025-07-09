@@ -15,10 +15,11 @@ vim.opt.hlsearch = true
 vim.opt.ignorecase = true
 
 -- indent shift width
-vim.opt.shiftwidth = 0
-vim.opt.tabstop = 4
+vim.opt.expandtab = true
 vim.opt.smartindent = true
-vim.opt.expandtab = false
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
 
 -- enable transparency for a floating window and a popup window
 vim.opt.winblend = 20
